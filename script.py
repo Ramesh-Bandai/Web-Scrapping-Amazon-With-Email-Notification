@@ -21,6 +21,9 @@ headers = {
     'accept-language': 'en-GB,en-US;q=0.9,en;q=0.8',
 }
 
+# sleep
+time.sleep(5)
+
 page = requests.get(url, headers=headers)
 
 soup = BeautifulSoup(page.content,'html.parser')
@@ -38,12 +41,12 @@ def amazon_send_email():
     server.starttls()
     server.ehlo()
 
-    server.login('tutorpython7@gmail.com','Yourpassword')
+    server.login('youremail@gmail.com','Yourpassword')
 
     subject = f'Price has fallen to {price}\n'
     message = subject + '\nThe price of ' + title + ' has fallen to ' + str(price)
 
-    server.sendmail('tutorpyuthon7@gmail.com','bennyhinnotieno@gmail.com',message)
+    server.sendmail('from@gmail.com','To@gmail.com',message)
 
     server.quit()
 
